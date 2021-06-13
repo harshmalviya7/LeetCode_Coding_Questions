@@ -1,6 +1,5 @@
 def bubblesort(n):
-
-    for i in range(len(n)):
+  for i in range(len(n)):
 
         flag=0
         for j in range(0,len(n)-i-1):
@@ -12,8 +11,6 @@ def bubblesort(n):
 
         if flag==0:
             break
-
-
 
 bubblesort([11, 12, 22, 25, 34, 64, 90])    #due to flag inner loop will run only one time
 # [11, 12, 22, 25, 34, 64, 90]
