@@ -1,4 +1,5 @@
 def rotate_image(arr):
+
     for i in range(len(arr)):
         print(arr[i])
     print("Transpose----")
