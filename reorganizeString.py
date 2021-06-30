@@ -3,6 +3,8 @@
 
 from collections import Counter
 import heapq
+
+
 class Solution:
     def reorganizeString(self, s: str) -> str:
         heap = []
@@ -13,22 +15,24 @@ class Solution:
         heapq.heapify(heap)
         print(heap)
         while (len(heap) > 1):
-            current = heapq.heappop(heap)
-            nextt = heapq.heappop(heap)
-            result += current[1]
-            result += nextt[1]
-            current[0] += 1
-            nextt[0] += 1
-            if current[0] < 0:
-                heapq.heappush(heap, current)
-            if nextt[0] < 0:
-                heapq.heappush(heap, nextt)
+            current = heapq.heappop(heap)[1]
+            nextt = heapq.heappop(heap)[1]
+            result += current
+            result += nextt
+            a[current] -= 1
+            a[nextt] -= 1
+            if a[current] > 0:
+                heapq.heappush(heap, [-a[current], current])
+            if a[nextt] > 0:
+                heapq.heappush(heap, [-a[nextt], nextt])
             print(result)
         print(heap)
         if heap:
-            last = heapq.heappop(heap)
-            if last[0] < -1:
+            last = heapq.heappop(heap)[1]
+            if a[last] > 1:
                 return ""
-            result += last[1]
+            result += last
         return (result)
+
+
 
