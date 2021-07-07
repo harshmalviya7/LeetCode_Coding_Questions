@@ -4,6 +4,7 @@
 class Solution:
     def repeatedSubstringPattern(self, s: str) -> bool:
 
+
         res = ""
         n = len(s)
         for i in range(n // 2):
